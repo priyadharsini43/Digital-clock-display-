@@ -1,0 +1,57 @@
+
+--- DigitalClockDisplay.java ---
+
+import javax.swing.*;
+import java.awt.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class DigitalClockDisplay extends JFrame {
+
+    JLabel timeLabel;
+
+    DigitalClockDisplay() {
+        setTitle("Digital Clock");
+        setSize(300, 150);
+        setLayout(new FlowLayout());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        timeLabel = new JLabel();
+        timeLabel.setFont(new Font("Arial", Font.BOLD, 40));
+        add(timeLabel);
+
+        // Timer to update the clock every second
+        Timer timer = new Timer(1000, e -> updateClock());
+        timer.start();
+
+        updateClock(); // Initial update
+        setVisible(true);
+    }
+
+    void updateClock() {
+        String time = new SimpleDateFormat("HH:mm:ss").format(new Date());
+        timeLabel.setText(time);
+    }
+
+    public static void main(String[] args) {
+        new DigitalClockDisplay();
+    }
+}
+
+--- README.md ---
+
+# 🕒 Digital Clock Display using Java
+
+A simple Java Swing application that displays the current time in digital format. The clock updates every second using a timer.
+
+## 🚀 Features
+- Real-time clock display
+- GUI using Java Swing
+- Updates every second
+
+## 💻 How to Run
+
+javac DigitalClockDisplay.java
+java DigitalClockDisplay
+
+Created by Priyuu ✨
